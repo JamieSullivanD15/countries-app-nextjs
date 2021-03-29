@@ -1,10 +1,9 @@
-import ArrowBack from "@material-ui/icons/ArrowBack";
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import { useRouter } from 'next/router'
 import Link from 'next/link';
 import Nav from './Nav';
 import Meta from './Meta';
-import Header from '../Header';
 
 import styles from '../../styles/Layout.module.scss';
 
@@ -16,7 +15,8 @@ type Props = {
 };
 
 const Layout = ({ children, showBackBtn }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
+
   return (
     <>
       <Meta />
@@ -33,7 +33,6 @@ const Layout = ({ children, showBackBtn }: Props) => {
       <Nav />
       <div className={styles.container}>
         <main className={styles.main}>
-          {/*<Header />*/}
           { children }
         </main>
       </div>

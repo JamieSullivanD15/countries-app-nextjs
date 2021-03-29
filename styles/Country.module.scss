@@ -58,7 +58,6 @@
 }
 
 .card {
-  width: 100%;
   margin: 20px 0;
   padding: 20px 40px;
   background: $light-grey;
@@ -83,18 +82,57 @@
   span {
     color: $secondary;
     margin-left: 6px;
+    font-weight: normal;
   }
 }
 
 .flag {
-  max-width: 600px;
+  width: 100%;
   margin: 20px 0;
+}
+
+.borderCountries {
+  h2 {
+    text-align: center;
+    color: $secondary;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: $secondary-font;
+
+    .card {
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      text-align: center;
+      flex: 0 1 calc(33.33% - 20px);
+      padding: 12px 6px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+      margin: 0;
+
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.10);
+      }
+    }
+  }
 }
 
 // media queries
 @media (max-width: 600px) {
   .card {
     flex-direction: column;
+    padding: 20px 10px;
 
     &__flag {
       img {
@@ -113,6 +151,12 @@
     &__flag {
       margin-right: 0;
       margin-bottom: 20px;
+    }
+  }
+
+  .borderCountries {
+    &__container {
+      justify-content: center;
     }
   }
 }
