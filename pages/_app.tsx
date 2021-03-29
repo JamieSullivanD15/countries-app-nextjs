@@ -1,8 +1,9 @@
-import '../styles/globals.css';
-import Layout from '../components/Layout';
+import '../styles/globals.scss';
+
+import Layout from '../components/Layout/Layout';
 
 const MyApp = ({ Component, pageProps }) => (
-  <Layout>
+  <Layout {...pageProps}>
     <Component {...pageProps} />
   </Layout>
 );

@@ -1,7 +1,7 @@
-import CountryList from '../components/CountryList';
-import Meta from '../components/Meta';
+import CountryList from '../components/Country/CountryList';
+import Meta from '../components/Layout/Meta';
 
-const Home = ({ countries }) => {
+const Home = ({ countries, showBackBtn }) => {
   return (
     <div>
       <Meta />
@@ -16,7 +16,8 @@ export const getStaticProps  = async () => {
 
   return {
     props: {
-      countries
+      countries,
+      showBackBtn: false,
     }
   }
 };

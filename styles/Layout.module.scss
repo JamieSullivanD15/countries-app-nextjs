@@ -1,18 +1,32 @@
+@import 'variables';
+
 .container {
+  background: $dark-grey;
   min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
+  padding: 0 30px
 }
 
 .main {
-  padding: 5rem 0;
-  flex: 1;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  font-size: 1.25rem;
+}
+
+.backBtn {
+  position: absolute;
+  top: 70px;
+  left: 60px;
+  color: $secondary;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: $body-font;
+
+  &:hover {
+    color: $primary;
+  }
 }
