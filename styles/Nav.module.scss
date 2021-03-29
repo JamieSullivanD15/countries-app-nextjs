@@ -15,8 +15,20 @@
     align-items: center;
     list-style: none;
 
-    li a {
-      margin: 5px 15px;
+    li {
+      color: $light-grey;
+      display: flex;
+      align-items: center;
+      font-size: $body-font;
+
+      &:hover {
+        transition: all .1s ease-in;
+        color: $primary;
+      }
+    }
+
+    a {
+      margin-left: 10px;
     }
   }
 }

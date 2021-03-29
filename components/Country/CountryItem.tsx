@@ -23,6 +23,7 @@ type Props = {
 
 const CountryItem = ({ country }: Props) => {
   const { flag, name, capital, region, population } = country;
+
   return (
     <Link href={{
       pathname: '/country/[slug]',

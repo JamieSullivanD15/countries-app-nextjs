@@ -1,7 +1,7 @@
 import CountryList from '../components/Country/CountryList';
 import Meta from '../components/Layout/Meta';
 
-const Home = ({ countries, showBackBtn }) => {
+const HomePage = ({ countries }) => {
   return (
     <div>
       <Meta />
@@ -22,4 +22,4 @@ export const getStaticProps  = async () => {
   }
 };
 
-export default Home;
+export default HomePage;

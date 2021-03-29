@@ -6,7 +6,13 @@ import Link from 'next/link';
 import Meta from '../../../components/Layout/Meta';
 import CountryInfo from '../../../components/Country/CountryInfo';
 
-const Country = ({ country }) => {
+import type { Country } from '../../../components/Country/CountryItem';
+
+type Props = {
+  country: Country;
+};
+
+const CountryPage = ({ country }: Props) => {
   return (
     <>
       <Meta title={country.name} description={country.name} />
@@ -26,4 +32,4 @@ export const getServerSideProps = async (context) => {
   }
 };
 
-export default Country;
+export default CountryPage;

@@ -8,7 +8,7 @@ type Props = {
   countries: Array<Country>;
 };
 
-const CountryList = ({ countries }: Props) =>  (
+const CountryList = ({ countries }: Props) => (
   <ul className={countryStyles.list}>
     { countries.map((country, i) => <CountryItem key={i} country={country} />) }
   </ul>
