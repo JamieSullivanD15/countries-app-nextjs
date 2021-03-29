@@ -11,10 +11,11 @@ export type Country = {
   name: string;
   flag: string;
   capital: string;
-  population: string;
+  population: number;
   region: string;
   currencies: Array<any>;
   languages: Array<any>;
+  borders: Array<string>;
 };
 
 type Props = {
@@ -30,7 +31,7 @@ const CountryItem = ({ country }: Props) => {
       query: { slug: encodeURI(country.name.toLowerCase()) },
     }}>
       <li className={countryStyles.listItem}>
-        <article className={countryStyles.card}>
+        <article className={`${countryStyles.card} width-full`}>
           <h2>{ name }</h2>
           <div className={countryStyles.listItem__container}>
             <div className={countryStyles.listItem__flag}>
@@ -43,7 +44,7 @@ const CountryItem = ({ country }: Props) => {
                 icon={<LocationCityIcon />}
               />
               <CountryHeader
-                heading="Continent"
+                heading="Region"
                 value={region}
                 icon={<LocationOnIcon />}
               />

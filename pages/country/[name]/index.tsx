@@ -1,3 +1,4 @@
+import useSWR from 'swr';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 
 import countryStyles from '../../../styles/Country.module.scss';
@@ -12,18 +13,17 @@ type Props = {
   country: Country;
 };
 
-const CountryPage = ({ country }: Props) => {
-  return (
-    <>
-      <Meta title={country.name} description={country.name} />
-      <CountryInfo country={country} />
-    </>
-  );
-};
+const CountryPage = ({ country }: Props) =>  (
+  <>
+    <Meta title={country.name} description={country.name} />
+    <CountryInfo country={country} />
+  </>
+);
 
 export const getServerSideProps = async (context) => {
   const res = await fetch(`https://restcountries.eu/rest/v2/name/${context.params.name}`);
   const country = await res.json();
+
   return {
     props: {
       country: country[0],
