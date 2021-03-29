@@ -1,8 +1,10 @@
+@import 'variables';
+
 .nav {
   height: 50px;
   padding: 10px;
-  background: #000;
-  color: #fff;
+  background: $secondary;
+  color: $light-grey;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -12,9 +14,21 @@
     justify-content: center;
     align-items: center;
     list-style: none;
-  }
 
-  ul li a{
-    margin: 5px 15px;
+    li {
+      color: $light-grey;
+      display: flex;
+      align-items: center;
+      font-size: $body-font;
+
+      &:hover {
+        transition: all .1s ease-in;
+        color: $primary;
+      }
+    }
+
+    a {
+      margin-left: 10px;
+    }
   }
 }

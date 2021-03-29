@@ -1,47 +1,118 @@
-.grid {
+@import 'variables';
+
+.list {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  color: $secondary;
+  width: 100%;
+  cursor: pointer;
+
+  .card {
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.10);
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    h3 {
+      font-size: $body-font;
+      font-weight: normal;
+      margin-top: 0;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__flag {
+    margin-right: 46px;
+
+    img {
+      max-width: 180px;
+    }
+  }
 }
 
 .card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px 40px;
+  background: $light-grey;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 0 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
-  &:hover, &:focus, &:active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
-
-  h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.5rem;
-  }
-
-  p {
-    margin: 0;
-    font-size: 1.25rem;
-    line-height: 1.5;
+  h2 {
+    text-align: center;
+    font-size: $heading-font;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 }
 
-.logo {
-  height: 1em;
+.header {
+  color: $primary;
+  display: flex;
+  align-items: center;
+  font-size: $body-font;
+
+  span {
+    color: $secondary;
+    margin-left: 6px;
+  }
 }
 
+.flag {
+  max-width: 600px;
+  margin: 20px 0;
+}
+
+// media queries
 @media (max-width: 600px) {
-  .grid {
-    width: 100%;
+  .card {
     flex-direction: column;
+
+    &__flag {
+      img {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .listItem {
+    &__container {
+      text-align: center;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__flag {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
 }

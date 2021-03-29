@@ -1,15 +1,22 @@
-import Link from 'next/link';
-import Meta from "../../../components/Meta";
+import ArrowBack from '@material-ui/icons/ArrowBack';
 
-const Country = ({ country }) => {
+import countryStyles from '../../../styles/Country.module.scss';
+
+import Link from 'next/link';
+import Meta from '../../../components/Layout/Meta';
+import CountryInfo from '../../../components/Country/CountryInfo';
+
+import type { Country } from '../../../components/Country/CountryItem';
+
+type Props = {
+  country: Country;
+};
+
+const CountryPage = ({ country }: Props) => {
   return (
     <>
       <Meta title={country.name} description={country.name} />
-      <h1>
-        Country Name: { country.name }
-      </h1>
-      <br />
-      <Link href='/'>Go Back</Link>
+      <CountryInfo country={country} />
     </>
   );
 };
@@ -19,32 +26,10 @@ export const getServerSideProps = async (context) => {
   const country = await res.json();
   return {
     props: {
-      country: country[0]
+      country: country[0],
+      showBackBtn: true
     }
   }
 };
 
-export default Country;
-
-// export const getStaticProps = async (context) => {
-//   const res = await fetch(`https://restcountries.eu/rest/v2/name/${encodeURI(context.params.name)}`);
-//   const country = await res.json();
-//   return {
-//     props: {
-//       country: country[0]
-//     }
-//   }
-// };
-//
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`https://restcountries.eu/rest/v2/all`);
-//   const countries = await res.json();
-//   const countryNames = countries.map(country => country.name);
-//   const paths = countryNames.map(name => (
-//     { params: { name: name.toString().toLowerCase() }}
-//   ));
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// };
+export default CountryPage;
